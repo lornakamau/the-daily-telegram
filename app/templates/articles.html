@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+<!-- {% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/article.css')}}" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+{% endblock %} -->
+
+{% block content%}
+
+<h1>TOP ARTICLES ON  {{header}}</h1>
+<hr>
+<ul>
+  {{ macro.displayArticles(articles) }}
+</ul>
+{% endblock %}

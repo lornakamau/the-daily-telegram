@@ -4,14 +4,27 @@
 <div class=col-md-3>
   <div class="source-card card" style="width: 18rem;">
     <div class="source-card-body card-body">
-      <h4 class="card-title" id="source-title">{{sources.name}}</h4>
+  <a href={{sources.url}} target="_blank"><h4 class="card-title" id="source-title">{{sources.name}}</h4></a>
       <h5 class="card-subtitle mb-2 text-muted"> category: {{sources.category}}</h5>
       <h5>{{sources.language}}</h5>
       <p class="card-text"> description: {{sources.description}} </p>
+      <a href="/{{sources.id}}" class="card-link">View articles</a>
       <br>
-      <a href={{sources.url}} class="card-link">Visit site</a>
     </div>
   </div>
 </div>
 {%endfor%}
+{% endmacro %}
+
+{% macro displayArticles(articles_list) %}
+{% for articles in articles_list%}
+
+<div class="articles col-md-4">
+  <img src="{{articles.imageurl}}" alt="article image" class="img-responsive">
+  <h3>{{articles.title}}</h4>
+    <p> published on:{{articles.publishedAt}}</p>
+    <a href={{articles.url}}>Read article</a>
+</div>
+
+{% endfor %}
 {% endmacro %}

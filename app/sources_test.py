@@ -11,7 +11,7 @@ class SourcesTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_source = Sources('ABC News', 'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.', 'https://abcnews.go.com', 'general', 'en')
+        self.new_source = Sources(1234, 'ABC News', 'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.', 'https://abcnews.go.com', 'general', 'en')
 
     def test_instance(self):
         '''
