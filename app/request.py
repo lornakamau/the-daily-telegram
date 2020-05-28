@@ -1,4 +1,56 @@
 from app import app
+import urllib.request,json #helps create a connection to our API URL and send a request, formats the JSON response to a Python dictionary
+from .models import sources
+
+Sources = sources.Sources
 
 # Getting api key
 apiKey = app.config['NEWS_API_KEY']
+
+# Getting the news base url
+base_url = app.config["NEWS_API_BASE_URL"]
+
+def get_sources():
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_sources_url = base_url.format(apiKey) #construct the news api url
+
+    with urllib.request.urlopen(get_sources_url) as url: #sending request as url
+        get_sources_data = url.read() #reading the response and storing in a get_sources_data variable
+        get_sources_response = json.loads(get_sources_data) #converting the JSON response to a Python dictionary
+
+        sources_results = None
+
+        if get_sources_response['sources']: #checking if response has any data
+            sources_results_list = get_sources_response['sources']
+            sources_results = process_results(sources_results_list)  
+
+    return sources_results #return a list of sources objects
+
+def process_results(sources_list):
+    '''
+    Function  that processes the sources result and transform them to a list of Objects
+
+    Args:
+        sources_list: A list of dictionaries that contain sources details
+
+    Returns :
+        sources_results: A list of sources objects
+    '''
+    sources_results = [] #to store our newly created sources objects
+    for sources_item in sources_list:
+        name = sources_item.get('name')
+        description = sources_item.get('description')
+        url = sources_item.get('url')
+        category = sources_item.get('category')
+        language = sources_item.get('language')
+
+        sources_object = Sources(name, description, url, category, language)
+        sources_results.append(sources_object)
+
+    return sources_results
+
+
+
+

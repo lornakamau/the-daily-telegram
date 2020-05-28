@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,11 @@
         {% endif %}
     </head>
     <body>
-        <h1>Hellur</h1>
+        <h1>The Daily Telegram</h1>
+        <p>Your trusted news source</p>
+        <hr>
+        <ul>
+            {{macro.displaySourcesList(sources)}}
+        </ul>
     </body>
 </html>
