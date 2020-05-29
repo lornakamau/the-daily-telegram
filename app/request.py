@@ -1,14 +1,15 @@
 from app import app
 import urllib.request,json #helps create a connection to our API URL and send a request, formats the JSON response to a Python dictionary
-from .models import sources,articles
+from .models import sources,articles,keyword
 
 Sources = sources.Sources
 Articles = articles.Articles
+Keyword = keyword.Keyword
 
 api_Key = app.config['NEWS_API_KEY']
 base_url = app.config["NEWS_API_BASE_URL"]
 top_articles_url = app.config["NEWS_API_TOP_ARTICLES_BASE_URL"]
-
+keyword_url = app.config["NEWS_API_SEARCH_KEYWORD_BASE_URL"]
 
 def get_sources():
     '''
@@ -31,10 +32,8 @@ def get_sources():
 def process_sources(sources_list):
     '''
     Function  that processes the sources result and transform them to a list of Objects
-
     Args:
         sources_list: A list of dictionaries that contain sources details
-
     Returns :
         sources_results: A list of sources objects
     '''
@@ -85,7 +84,32 @@ def process_articles(articles_list):
 
     return articles_results
 
+def search_keyword(keyword_name):
+    search_keyword_url = keyword_url.format(keyword_name, api_Key)
+    with urllib.request.urlopen(search_keyword_url) as url:
+        search_keyword_data = url.read()
+        search_keyword_response = json.loads(search_keyword_data)
 
+        keyword_results = None
 
+        if search_keyword_response['articles']:
+            search_keyword_list = search_keyword_response['articles']
+            keyword_results = process_keyword(search_keyword_list)
 
+    return keyword_results
+
+def process_keyword(keyword_list):
+    keyword_results = []
+    for keyword in keyword_list:
+        author = keyword.get('author')
+        title = keyword.get('title')
+        imageurl = keyword.get('urlToImage')
+        publishedAt = keyword.get('publishedAt')
+        url = keyword.get('url')
+
+        if imageurl:
+            keyword_object = Keyword(author,title,imageurl,publishedAt,url)
+            keyword_results.append(keyword_object)
+
+    return keyword_results
 

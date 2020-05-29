@@ -18,8 +18,8 @@ def articles(sourcesId):
     '''
     View function that displays top stories from a particular source
     '''
-    articles = get_top_articles(sourcesId)
+    articles_with_images = get_top_articles(sourcesId)
     title = f"{sourcesId} articles"
     header = sourcesId.upper()
     
-    return render_template('articles.html', title=title, header=header, articles=articles)
+    return render_template('articles.html', title=title, header=header, articles=articles_with_images)
