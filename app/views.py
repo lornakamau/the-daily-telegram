@@ -1,6 +1,6 @@
 from flask import render_template #used to load templates
 from app import app
-from .request import get_sources, get_top_articles
+from .request import get_sources, get_top_articles,search_keyword
 
 # Views
 @app.route('/')
@@ -23,3 +23,14 @@ def articles(sourcesId):
     header = sourcesId.upper()
     
     return render_template('articles.html', title=title, header=header, articles=articles_with_images)
+
+@app.route('/<keyword_name>')
+def keyword(keyword_name):
+    '''
+    View function to display the search results
+    '''
+    keyword_name_list = keyword_name.split(" ")
+    keyword_name_format = "+".join(keyword_name_list)
+    searched_keyword = search_keyword(keyword_name_format)
+    title = f'{keyword_name}'
+    return render_template('search.html', keyword = searched_keyword, title = title)
