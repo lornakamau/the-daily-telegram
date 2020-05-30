@@ -1,4 +1,4 @@
-from flask import render_template #used to load templates
+from flask import render_template,request,redirect,url_for
 from app import app
 from .request import get_sources, get_top_articles,search_keyword
 
@@ -11,20 +11,29 @@ def index():
     #Getting sources
     sources = get_sources()
     title = 'The Daily Telegram'
-    return render_template('index.html', title = title, sources=sources)
+    search_keyword = request.args.get('keyword_query')
+
+    if search_keyword:
+        return redirect(url_for('keyword', keyword_name=search_keyword))
+    else:
+        return render_template('index.html', title = title, sources=sources)
 
 @app.route('/<sourcesId>')
 def articles(sourcesId):
     '''
     View function that displays top stories from a particular source
     '''
-    articles_with_images = get_top_articles(sourcesId)
-    title = f"{sourcesId} articles"
+    articles= get_top_articles(sourcesId)
+    title = f"{sourcesId}"
     header = sourcesId.upper()
-    
-    return render_template('articles.html', title=title, header=header, articles=articles_with_images)
+    search_keyword = request.args.get('keyword_query')
 
-@app.route('/<keyword_name>')
+    if search_keyword:
+        return redirect(url_for('keyword', keyword_name=search_keyword))
+    else:
+        return render_template('articles.html', title=title, header=header, articles=articles)
+
+@app.route('/search/<keyword_name>')
 def keyword(keyword_name):
     '''
     View function to display the search results

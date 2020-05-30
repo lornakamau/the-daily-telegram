@@ -1,20 +1,39 @@
-{% macro displaySourcesList(sources_list)%}
+<!-- {% macro displaySourcesList(sources_list)%}
 {% for sources in sources_list%}
-
-<div class=col-md-3>
-  <div class="source-card card" style="width: 18rem;">
-    <div class="source-card-body card-body">
+<div class="flex-container" style="display: flex; flex-wrap: wrap;background-color: blue;"> -->
+  <!-- <div class=>
+  <div class="card mb-4 col-md-3" style="width: 20rem; height: 100%; border-color: yellowgreen ;">
+    <div class="card-body">
       <a href={{sources.url}} target="_blank">
         <h4 class="card-title" id="source-title">{{sources.name}}</h4>
       </a>
-      <h5 class="card-subtitle mb-2 text-muted"> category: {{sources.category}}</h5>
+      
       <h5>{{sources.language}}</h5>
       <p class="card-text"> description: {{sources.description}} </p>
       <a href="/{{sources.id}}" class="card-link">View articles</a>
       <br>
     </div>
   </div>
+</div> -->
+<!-- </div> 
+{%endfor%}
+{% endmacro %} -->
+
+{% macro displaySourcesList(sources_list)%}
+{% for sources in sources_list%}
+<div class="cards col-md-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="language">{{sources.language}}</div>
+      <a href={{sources.url}} target="_blank"><h5 class="card-title">{{sources.name}}</h5></a>
+      <h5 class="card-subtitle mb-8 text-muted">{{sources.category}}</h5>
+      <p class="card-text">{{sources.description}}</p>
+      <a href="/{{sources.id}}" class="card-link">View articles</a>
+    </div>
+  </div>
+  <hr>
 </div>
+
 {%endfor%}
 {% endmacro %}
 
@@ -25,6 +44,17 @@
   <h3>{{articles.title}}</h4>
   <p> published on:{{articles.publishedAt}}</p>
   <a href={{articles.url}}>Read article</a>
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro displayKeyword(keyword_list) %}
+{% for keyword in keyword_list%}
+<div class="articles col-md-4">
+  <img src="{{keyword.imageurl}}" alt="article image" class="img-responsive">
+  <h3>{{keyword.title}}</h4>
+  <p> published on:{{keyword.publishedAt}}</p>
+  <a href={{keyword.url}}>Read article</a>
 </div>
 {% endfor %}
 {% endmacro %}

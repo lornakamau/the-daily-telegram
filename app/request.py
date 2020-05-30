@@ -71,12 +71,12 @@ def get_top_articles(id):
 
 def process_articles(articles_list):
     articles_results = []
-    for article in articles_list:
-        author = article.get('author')
-        title = article.get('title')
-        imageurl = article.get('urlToImage')
-        publishedAt = article.get('publishedAt')
-        url = article.get('url')
+    for articles_item in articles_list:
+        author = articles_item.get('author')
+        title = articles_item.get('title')
+        imageurl = articles_item.get('urlToImage')
+        publishedAt = articles_item.get('publishedAt')
+        url = articles_item.get('url')
 
         if imageurl:
             articles_object = Articles(author,title,imageurl,publishedAt,url)
