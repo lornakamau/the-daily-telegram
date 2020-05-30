@@ -3,16 +3,26 @@
 <!-- Styles block -->
 {% block styles%}
 {{ super() }}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" type="text/css">
-{% endblock %}
+{% endblock styles%}
 <!-- Content block -->
 {% block content %}
-
-    <h1 style="font-family: 'DM Serif Display', serif;">The Daily Telegram</h1>
-    <p>State of the world at your hands</p>
-    <hr>
-    <div class="body">
-        {{macro.displaySourcesList(sources)}}
+<div class="row" style="position: fixed;">
+    <div class="index_content col-md-3">
+        <h1>The Daily Telegram</h1>
+        <h5>State of the world at your hands</h5>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="keyword_query" aria-label="Search" style="background-color: transparent;">
+            <button class="btn btn-outline-success my-2 my-sm-0" value="Submit" type="submit">Search</button>
+        </form>
     </div>
-
+    <div class="col-md-9"></div>
+</div>
+<div class="row sources">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+    {{macro.displaySourcesList(sources)}}
+    </div>
+</div>
 {% endblock%}
