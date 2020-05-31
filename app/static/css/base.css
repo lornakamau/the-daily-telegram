@@ -1,14 +1,13 @@
 h1{
     font-family: 'DM Serif Display', serif;
-    font-size: 7rem;
+    font-size: 6rem;
 }
 a{
     color: inherit;
 }
-.sources{
-    padding-left: 4%;
-    padding-right: 4%;
-    float: right;
+.sources, .articles{
+    display: flex;
+    flex-wrap: wrap;
 }
 .header{
     height: 100%;
@@ -21,4 +20,23 @@ a{
 }
 .row{
     position: relative;
+}
+.col-md-9{
+    padding-left: 1%;
+    padding-right: 1%;
+    float: right;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 32%;
+}
+form input, form button{
+    background-color: transparent;
+}
+input{
+    border-left: transparent;
+}
+.btn{
+    border-color:inherit;
 }

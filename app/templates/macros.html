@@ -9,31 +9,40 @@
       <p class="card-text">{{sources.description}}</p>
       <br>
       <a href="/source/{{sources.id}}" class="card-link">View articles</a>
+      <br>
     </div>
   </div>
-  <hr>
 </div>
 {%endfor%}
 {% endmacro %}
 
 {% macro displayArticles(articles_list) %}
 {% for article in articles_list%}
-<div class="article col-md-4">
-  <img src="{{article.imageurl}}" alt="article image" class="img-responsive">
-  <h3>{{article.title}}</h4>
-  <p> published on:{{article.publishedAt}}</p>
-  <a href={{article.url}} target="_blank">Read article</a>
+<div class="col-md-4">
+  <div class="card">
+    <img src="{{article.imageurl}}" class="card-img-top img-responsive" alt="article image">
+    <div class="card-body">
+      <h4 class="card-text">{{article.title}}</h4>
+      <p> published on:{{article.publishedAt}}</p>
+      <a href={{article.url}} target="_blank">Read article</a>
+    </div>
+  </div>
 </div>
 {% endfor %}
 {% endmacro %}
 
 {% macro displayKeyword(keyword_list) %}
 {% for keyword in keyword_list%}
-<div class="articles col-md-4">
-  <img src="{{keyword.imageurl}}" alt="article image" class="img-responsive">
-  <h3>{{keyword.title}}</h4>
-  <p> published on:{{keyword.publishedAt}}</p>
-  <a href={{keyword.url}}>Read article</a>
+<div class="col-md-4">
+  <div class="card">
+    <img src="{{keyword.imageurl}}" class="card-img-top img-responsive" alt="article image">
+    <div class="card-body">
+      <h4 class="card-text">{{keyword.title}}</h4>
+      <p> published on:{{keyword.publishedAt}}</p>
+      <a href={{keyword.url}} target="_blank">Read article</a>
+    </div>
+  </div>
 </div>
+
 {% endfor %}
 {% endmacro %}

@@ -9,12 +9,17 @@
 {% block content %}
 <div class="row">
     <div class="header col-md-3">
-        <h1>The Daily Telegram</h1>
+        <a href="/"><h1>The <br>Daily <br>Telegram</h1></a>
         <h5>State of the world at your hands</h5>
+        <br><br>
+        <h5>Find an article</h5>
         <form class="form-group">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="keyword_query" aria-label="Search" style="background-color: transparent;">
-            <button class="btn btn-outline-success my-2 my-sm-0" value="Submit" type="submit">Search</button>
+            <button class="btn my-2 my-sm-0" value="Submit" type="submit">Search</button>
         </form> 
+        <div class="footer text-center">
+            <a href="https://newsapi.org/"><p>Powered by NewsAPI</p></a> 
+        </div>
     </div>
     <div class="sources col-md-9">
         {{macro.displaySourcesList(sources)}}  
