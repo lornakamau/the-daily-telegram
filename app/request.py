@@ -1,6 +1,7 @@
 from app import app
 import urllib.request,json #helps create a connection to our API URL and send a request, formats the JSON response to a Python dictionary
 from .models import sources,articles,keyword
+from datetime import datetime
 
 Sources = sources.Sources
 Articles = articles.Articles
@@ -48,8 +49,8 @@ def process_sources(sources_list):
 
         sources_object = Sources(id, name, description, url, category, language)
         sources_results.append(sources_object)
-
     return sources_results
+    
 
 def get_top_articles(id):
     '''
@@ -81,7 +82,7 @@ def process_articles(articles_list):
         if imageurl:
             articles_object = Articles(author,title,imageurl,publishedAt,url)
             articles_results.append(articles_object)
-
+    print(publishedAt)
     return articles_results
 
 def get_keyword(keyword_name):

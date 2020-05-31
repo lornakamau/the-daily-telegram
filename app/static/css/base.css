@@ -13,7 +13,10 @@ a:hover, a:visited{
     display: flex;
     flex-wrap: wrap;
 }
-.sources a:hover, .sources a:visited, .articles a:hover, .articles a:visited{
+.sources a:visited,  .articles a:visited{
+    color: #6F1D1B;
+}
+.sources a:hover, .articles a:hover, .articles a:visited{
     color: #6F1D1B;
 }
 .header{
