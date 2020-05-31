@@ -9,7 +9,20 @@
 {% endblock %}
 
 {% block content%}
-<h1>TOP ARTICLES ON  {{header}}</h1>
-<hr>
-  {{ macro.displayArticles(article) }}
+<div class="row">
+  <div class="header col-md-3">
+      <h1>The Daily Telegram</h1>
+      <h5>State of the world at your hands</h5>
+      <form class="form-group">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="keyword_query"
+              aria-label="Search" style="background-color: transparent;">
+          <button class="btn btn-outline-success my-2 my-sm-0" value="Submit" type="submit">Search</button>
+      </form>
+  </div>
+  <div class="sources col-md-9">
+    <h3>TOP ARTICLES ON  {{header}}</h3>
+    <hr>
+    {{ macro.displayArticles(article) }}
+  </div>
+</div>  
 {% endblock %}

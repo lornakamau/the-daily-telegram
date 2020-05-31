@@ -18,15 +18,3 @@
     display: inline-flex;
 }
 
-h1{
-    font-family: 'DM Serif Display', serif;
-    font-size: 7rem;
-    color: darkred;
-}
-a{
-    color: inherit;
-}
-.sources{
-    padding-left: 4%;
-    padding-right: 4%;
-}

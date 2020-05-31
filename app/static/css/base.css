@@ -1,0 +1,24 @@
+h1{
+    font-family: 'DM Serif Display', serif;
+    font-size: 7rem;
+}
+a{
+    color: inherit;
+}
+.sources{
+    padding-left: 4%;
+    padding-right: 4%;
+    float: right;
+}
+.header{
+    height: 100%;
+    position: fixed;
+}
+.col-md-3{
+    background-color: #6F1D1B;
+    padding-left: 2%;
+    color: white;
+}
+.row{
+    position: relative;
+}

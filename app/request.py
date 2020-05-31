@@ -84,7 +84,7 @@ def process_articles(articles_list):
 
     return articles_results
 
-def search_keyword(keyword_name):
+def get_keyword(keyword_name):
     search_keyword_url = keyword_url.format(keyword_name, api_Key)
     with urllib.request.urlopen(search_keyword_url) as url:
         search_keyword_data = url.read()

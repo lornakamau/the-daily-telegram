@@ -14,6 +14,7 @@
   {% endif %}
   {% block styles %}
   {{ super() }}
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}" type="text/css">
   {% endblock %}
 </head>
@@ -21,9 +22,9 @@
 <body>
   <!-- Content block -->
   <div class="container-fluid">
-  {% block content %}
+    {% block content %}
 
-  {% endblock%}
+    {% endblock%}
   </div>
 </body>
 
