@@ -11,7 +11,7 @@
     <div class="header col-md-3">
         <a href="/"><h1>The <br>Daily <br>Telegram</h1></a>
         <h5>State of the world at your hands</h5>
-        <br><br>
+        <br>
         <h5>Find an article</h5>
         <form class="form-group">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="keyword_query" aria-label="Search" style="background-color: transparent;">
@@ -21,7 +21,12 @@
             <a href="https://newsapi.org/"><p>Powered by NewsAPI</p></a> 
         </div>
     </div>
-    <div class="sources col-md-9">
+    <div class="col-md-9">
+        <h3 class="text-center">TOP SOURCES FROM ALL AROUND THE WORLD</h3>
+        <hr>
+        <br>
+        <div class="sources">
         {{macro.displaySourcesList(sources)}}  
+        </div>
     </div>
 {% endblock%}
