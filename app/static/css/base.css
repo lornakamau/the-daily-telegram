@@ -44,6 +44,9 @@ a:hover, a:visited{
 form input, form button{
     background-color: transparent;
 }
+form input{
+    border-bottom: 2px dotted;
+}
 .btn{
     border-width: 0px;
 }

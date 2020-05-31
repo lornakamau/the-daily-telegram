@@ -9,8 +9,43 @@
 .card .card-title {
     font-size: 2.7rem;
     font-family: 'Playfair Display', serif;
+    position: relative;
 }
 
+.card-title .tooltiptext{
+    visibility: hidden;
+    width: 18rem;
+    background-color: #6F1D1B;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 25%;
+    margin-left: -60px;
+    /*animate tooltip*/
+    opacity: 0;
+    transition: opacity 1s;
+}
+.card-title .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #6F1D1B transparent transparent transparent;
+  }
+.card-title:hover .tooltiptext{
+    visibility: visible;
+    opacity: 1;
+}
 .language {
     float: right;
     margin-right: 1rem;
