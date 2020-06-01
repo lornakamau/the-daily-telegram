@@ -54,6 +54,7 @@ form input[type=text]{
     border-bottom: 2px solid white;
     background-color: transparent;
     border-radius: 1;
+    margin-bottom: 0.5rem;
 }
 h3{
     font-size: 3rem;
