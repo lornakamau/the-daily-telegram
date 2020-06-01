@@ -77,21 +77,14 @@ def process_articles(articles_list):
         author = articles_item.get('author')
         title = articles_item.get('title')
         imageurl = articles_item.get('urlToImage')
-        publishedAt = articles_item.get('publishedAt')
-        # publishedAt = date_time(date_published)
+        publishedOn = articles_item.get('publishedAt')
+        publishedAt = date_convert(publishedOn)
         url = articles_item.get('url')
 
         if imageurl:
             articles_object = Articles(author,title,imageurl,publishedAt,url)
             articles_results.append(articles_object)
     return articles_results
-
-def date_time(date_published):
-    datetimeObj = datetime.strptime( date_published, "%Y-%m-%dT%H:%M:%S:%SSS'Z'")
-    
-    print(datetimeObj)
-    print(type(datetimeObj))
-    return datetimeObj
 
 def get_keyword(keyword_name):
     search_keyword_url = keyword_url.format(keyword_name, api_Key)
@@ -113,7 +106,8 @@ def process_keyword(keyword_list):
         author = keyword.get('author')
         title = keyword.get('title')
         imageurl = keyword.get('urlToImage')
-        publishedAt = keyword.get('publishedAt')
+        publishedOn = keyword.get('publishedAt')
+        publishedAt = date_convert(publishedOn)
         url = keyword.get('url')
 
         if imageurl:
@@ -149,4 +143,10 @@ def process_breaking_news(breaking_news_list):
 
     return breaking_results
     
-        
+def date_convert(date):
+    dd=date[8:10]
+    mm=date[5:7]
+    yyyy=date[0:4]    
+    time=date[11:16]
+    date_new_format= dd+"-"+mm+"-"+yyyy+"  "+time+" hrs"
+    return date_new_format
