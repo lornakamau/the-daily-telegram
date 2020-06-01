@@ -160,7 +160,7 @@ hr {
     }
 
     .not-visible {
-        display: inline !important;
+        display: initial !important;
         font-size: 5rem;
         padding-top: 5%;
     }
