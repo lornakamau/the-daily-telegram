@@ -112,11 +112,16 @@ hr {
     }
 
     h1 {
-        font-size: 3rem;
+        font-size: 4.5rem;
+        padding-top: 3%;
     }
 
     h3 {
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+
+    button{
+        margin-bottom: 2% !important;
     }
 
     h4 .card-text {
@@ -127,6 +132,9 @@ hr {
         font-size: 1.25rem;
     }
 
+    .card-title{
+        font-size: 2rem;
+    }
     body,
     a {
         font-size: 1.5rem;
