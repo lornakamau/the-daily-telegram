@@ -136,8 +136,8 @@ hr {
         font-size: 1.25rem;
     }
 
-    .card-title {
-        font-size: 2.8rem;
+    .card-title h5 {
+        font-size: 2rem;
     }
 
     body,
