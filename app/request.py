@@ -6,11 +6,13 @@ from datetime import datetime
 Sources = sources.Sources
 Articles = articles.Articles
 Keyword = keyword.Keyword
+Breaking = articles.Breaking
 
 api_Key = app.config['NEWS_API_KEY']
 base_url = app.config["NEWS_API_BASE_URL"]
 top_articles_url = app.config["NEWS_API_TOP_ARTICLES_BASE_URL"]
 keyword_url = app.config["NEWS_API_SEARCH_KEYWORD_BASE_URL"]
+breaking_news_url = app.config["NEWS_API_BREAKING_NEWS_BASE_URL"]
 
 def get_sources():
     '''
@@ -51,7 +53,6 @@ def process_sources(sources_list):
         sources_results.append(sources_object)
     return sources_results
     
-
 def get_top_articles(id):
     '''
     Function that gets the json response to our url request
@@ -77,13 +78,20 @@ def process_articles(articles_list):
         title = articles_item.get('title')
         imageurl = articles_item.get('urlToImage')
         publishedAt = articles_item.get('publishedAt')
+        # publishedAt = date_time(date_published)
         url = articles_item.get('url')
 
         if imageurl:
             articles_object = Articles(author,title,imageurl,publishedAt,url)
             articles_results.append(articles_object)
-    print(publishedAt)
     return articles_results
+
+def date_time(date_published):
+    datetimeObj = datetime.strptime( date_published, "%Y-%m-%dT%H:%M:%S:%SSS'Z'")
+    
+    print(datetimeObj)
+    print(type(datetimeObj))
+    return datetimeObj
 
 def get_keyword(keyword_name):
     search_keyword_url = keyword_url.format(keyword_name, api_Key)
@@ -114,3 +122,31 @@ def process_keyword(keyword_list):
 
     return keyword_results
 
+def get_breaking_news():
+    get_breaking_news_url = breaking_news_url.format(api_Key)
+
+    with urllib.request.urlopen(get_breaking_news_url) as url:
+        get_breaking_data = url.read()
+        get_breaking_response = json.loads(get_breaking_data)
+
+        breaking_results = None
+
+        if get_breaking_response['articles']:
+            breaking_results_list = get_breaking_response['articles']
+            breaking_results = process_breaking_news(breaking_results_list)
+
+        return breaking_results
+
+def process_breaking_news(breaking_news_list):
+    breaking_results = []
+    for breaking_item in breaking_news_list:
+        title = breaking_item.get('title')
+        imageurl = breaking_item.get('urlToImage')
+        url = breaking_item.get('url')
+
+        breaking_object = Breaking(title,imageurl, url)
+        breaking_results.append(breaking_object)
+
+    return breaking_results
+    
+        

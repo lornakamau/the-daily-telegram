@@ -9,3 +9,14 @@ class Articles:
     self.imageurl =imageurl
     self.publishedAt = publishedAt
     self.url = url
+
+class Breaking:
+  '''
+  Articles class to define Article objects
+  '''
+  def __init__(self, title, imageurl, url):
+    self.title = title
+    self.imageurl =imageurl
+    self.url = url
+
+

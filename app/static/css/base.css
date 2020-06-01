@@ -1,6 +1,6 @@
 h1{
     font-family: 'DM Serif Display', serif;
-    font-size: 6rem;
+    font-size: 4rem;
     text-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
 }
 a{
@@ -44,14 +44,16 @@ a:hover, a:visited{
     bottom: 0;
     left: 32%;
 }
-form input, form button{
-    background-color: transparent;
-}
-form input{
-    border-bottom: 2px dotted;
-}
 .btn{
-    border-width: 0px;
+    background-color: transparent !important;
+    border: 2px solid white;
+}
+form input[type=text]{
+    border-radius: 0;
+    border-color: transparent;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    border-radius: 1;
 }
 h3{
     font-size: 3rem;

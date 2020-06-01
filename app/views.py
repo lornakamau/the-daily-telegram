@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from app import app
-from .request import get_sources, get_top_articles,get_keyword
+from .request import get_sources, get_top_articles,get_keyword, get_breaking_news
 
 # Views
 @app.route('/')
@@ -10,13 +10,14 @@ def index():
     '''
     #Getting sources
     sources = get_sources()
+    breaking_news = get_breaking_news()
     title = 'The Daily Telegram'
     get_keyword = request.args.get('keyword_query')
 
     if get_keyword:
         return redirect(url_for('keyword', keyword_name=get_keyword))
     else:
-        return render_template('index.html', title = title, sources=sources)
+        return render_template('index.html', title = title, sources=sources, breaking_news=breaking_news)
 
 @app.route('/source/<sourcesId>')
 def articles(sourcesId):
