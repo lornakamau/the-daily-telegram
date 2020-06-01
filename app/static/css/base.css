@@ -156,7 +156,8 @@ hr {
 
     .not-visible {
         display: inline !important;
-        padding-top: 2%;
+        font-size: 5rem;
+        padding-top: 5%;
     }
 }
 
