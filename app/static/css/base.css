@@ -158,6 +158,8 @@ hr {
         display: initial !important;
         font-size: 3.5rem;
         padding-top: 5%;
+        padding-left: 2%;
+        padding-right: 2%;
     }
 }
 
