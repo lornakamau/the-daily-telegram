@@ -161,7 +161,7 @@ hr {
 
     .not-visible {
         display: initial !important;
-        font-size: 5rem;
+        font-size: 4rem;
         padding-top: 5%;
     }
 }
