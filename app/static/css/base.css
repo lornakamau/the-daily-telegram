@@ -115,11 +115,6 @@ hr {
         justify-items: center;
     }
 
-    h1 {
-        font-size: 10rem;
-        padding-top: 9%;
-    }
-
     .col-md-3,
     .col-md-9 {
         padding: 0;
