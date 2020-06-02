@@ -43,66 +43,7 @@
                             <p><a href="{{breaking_news[0].url}}" target="_blank">{{breaking_news[0].title}}</a></p>                                                                      
                         </div>
                       </div>
-                      <div class="item">
-                        <img src="{{breaking_news[1].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[1].url}}" target="_blank">{{breaking_news[1].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[2].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[2].url}}" target="_blank">{{breaking_news[2].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[3].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[3].url}}" target="_blank" >{{breaking_news[3].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[4].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[4].url}}" target="_blank">{{breaking_news[4].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[5].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[5].url}}" target="_blank">{{breaking_news[5].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[6].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[6].url}}" target="_blank">{{breaking_news[6].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[7].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[7].url}}" target="_blank">{{breaking_news[7].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[8].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[8].url}}" target="_blank">{{breaking_news[8].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[9].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[9].url}}" target="_blank">{{breaking_news[9].title}}</a></p>                                    
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="{{breaking_news[10].imageurl}}" alt="..." class="img-responsive" onerror="imgError(this);">
-                        <div class="carousel-caption">
-                            <p><a href="{{breaking_news[10].url}}" target="_blank">{{breaking_news[10].title}}</a></p>                                    
-                        </div>
-                      </div>
+                      {{macro.displayCarouselItems(breaking_news)}}
                     </div>
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>

@@ -1,3 +1,18 @@
+{% macro displayCarouselItems(breaking_list) %}    
+{% for breaking_news in breaking_list %}
+{% if breaking_news.imageurl==breaking_list[0].imageurl %}
+{% else %}
+<div class="item">
+  <img src="{{breaking_news.imageurl}}" alt="...">
+  <div class="carousel-caption">
+      <p><a href="{{breaking_news.url}}" target="_blank">{{breaking_news.title}}</a></p>                                    
+  </div>
+</div>
+{% endif %}
+{% endfor %}  
+{% endmacro %}
+
+
 {% macro displaySourcesList(sources_list)%}
 {% for sources in sources_list%}
 <div class="col-md-4">
@@ -16,6 +31,7 @@
 {%endfor%}
 {% endmacro %}
 
+
 {% macro displayArticles(articles_list) %}
 {% for article in articles_list%}
 <div class="col-md-4">
@@ -31,6 +47,7 @@
 {% endfor %}
 {% endmacro %}
 
+
 {% macro displayKeyword(keyword_list) %}
 {% for keyword in keyword_list%}
 <div class="col-md-4">
@@ -43,6 +60,5 @@
     </div>
   </div>
 </div>
-
 {% endfor %}
 {% endmacro %}
