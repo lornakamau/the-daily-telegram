@@ -1,4 +1,5 @@
-#excluding our virtual environment and all compiled Python files
+
 virtual/ 
 *.pyc
 instance/
+start.sh
